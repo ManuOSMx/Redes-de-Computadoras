@@ -38,7 +38,8 @@ else
     {
         perror("\n Exito en el bind");        /*CLIENTE.sin_family=AF_INET; /* address family: AF_INET */
         /*CLIENTE.sin_port=htons(53);   /* port in network byte order */
-       /*CLIENTE.sin_addr.s_addr=inet_addr("8.8.8.8");*        lrecv=sizeof(CLIENTE);
+       /*CLIENTE.sin_addr.s_addr=inet_addr("8.8.8.8");*/ 
+             lrecv=sizeof(CLIENTE);
         // Inicio de bucle recibo el mensaje 
         //
         tam=recvfrom(udp_socket,paqRec, 512, 0, (struct sockaddr *)&CLIENTE,&lrecv);
