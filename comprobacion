@@ -1,0 +1,10 @@
+Al ejecutarse ciente, lo que hicimos fue comprobar la apertura del socket y del lbind
+ademas manda un mensaje
+
+necesitamos saber nuestra ip.Para ello, ejecutamos el siguiente comando en la terminal:
+"
+Abrimos Whireshark
+
+
+
+Para revisar los manuales, ejecutamos en el terminal el man 2 socket
