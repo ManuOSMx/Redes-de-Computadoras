@@ -13,7 +13,7 @@ unsigned char MACorigen[6];
 unsigned char MACbroad[6]={0xff,0xff,0xff, 0xff,0xff,0xff};
 //unsigned char ethertype[2]={0x0c, 0x0c};
 //solicitud de ARP
-unsigned char ethertype[2]={0x08, 0x06};
+unsigned char ethertype[2]={0x08, 0x06};      
 unsigned char tramaEnv[1514], tramaRec[1514];
 unsigned char IPorigen[4];
 unsigned char IPdestino[4];
@@ -29,7 +29,7 @@ void imprimirTrama(unsigned char *paq, int len){
     printf("\n");
 }
 
-void estructuraTrama(unsigned char *trama){
+void estructuraTrama(unsigned char *trama){ //Ahora se esta haciendo una estrutura en la trama pero ahora se esta haciendo el protocolo ARP que Wiresharkk detectará
     unsigned char tipoh[2]={00,01};
     unsigned char tipoP[2]={0x08,0x00};
     unsigned char lonH[1]={6};
@@ -80,7 +80,12 @@ void enviarTrama( int ds, int index, unsigned char *trama){
         perror("\nexito al enviar");
     }
 }
+/* 
+Se esta creando una función para que después de enviar una trama, este esperará
+a recibir una nueva trama que leerá de "trama" y así poder establecer una conexión donde 
+pueda iniciarce un chat mientras while sea 1
 
+*/
 void recibirTrama(int ds, unsigned char *trama){
     //funcion para chat, recvfrom
     while(1){
@@ -123,7 +128,6 @@ int obtenerDatos(int ds){
             for(i=0; i<6; i++){
                 printf("%.2x:", MACorigen[i]);
             }
-            printf("hola");
             /*printf("\nLa ip de origen es: ");
             for(i=0;i<6; i++){
                 printf("%.2x:", MACorigen[i]);
