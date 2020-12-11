@@ -74,7 +74,7 @@ void imprimirTrama(unsigned char *paq, int len){
 
 void estructuraTrama(unsigned char *trama){
     char IP[50];
-    printf("\nInserta la direccion IP: ");
+    printf("\nInserta la direccion IP Destino: ");
     gets(IP);
     inet_aton(IP,IPdestino);
     unsigned char tipoh[2]={0x00,0x01};//ethernet interfaz de red
